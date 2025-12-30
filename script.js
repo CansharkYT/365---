@@ -2,6 +2,18 @@
 const STORAGE_KEY = 'irisPurpleSavings_365';
 let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
+// 自動標記今天
+function markToday() {
+    const today = new Date();
+    const startOfYear = new Date(today.getFullYear(), 0, 1);
+    const dayOfYear = Math.floor((today - startOfYear) / (1000 * 60 * 60 * 24)) + 1;
+
+    if (!savedData.includes(dayOfYear)) {
+        savedData.push(dayOfYear);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
+    }
+}
+
 function render() {
     const grid = document.getElementById('grid');
     grid.innerHTML = '';
@@ -49,8 +61,15 @@ function reset() {
     }
 }
 
-// 頁面載入時渲染
+// 頁面載入時
 window.onload = () => {
     savedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    markToday();   // 自動記今天
     render();
+};
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js')
+    .then(() => console.log('Service Worker registered'))
+    .catch((err) => console.log('Service Worker registration failed:', err));
 };
