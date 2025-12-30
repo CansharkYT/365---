@@ -75,11 +75,11 @@
 
         /* 存錢網格 */
         .grid-container {
-            width: 50%;
+            width: 100%;
             padding: 10px 15px 120px;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 24px;
+            gap: 12px;
         }
 
         .coin {
