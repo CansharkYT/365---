@@ -1,0 +1,48 @@
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>365存款挑戰-鳶尾紫版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>2v3</h1>
+        <p style="opacity: 0.8; font-size: 12px; margin-top: 6px;">出國旅遊基金</p>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-item">
+            <span class="stat-value" id="total-money">$0</span>
+            <span class="stat-label">累積</span>
+        </div>
+        <div class="stat-item" style="border-left: 1px solid #F0EEF5; border-right: 1px solid #F0EEF5;">
+            <span class="stat-value" id="total-days">0</span>
+            <span class="stat-label">天數</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="percent">0%</span>
+            <span class="stat-label">達成率</span>
+        </div>
+    </div>
+
+    <div class="progress-wrapper">
+        <div class="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="grid-container" id="grid"></div>
+
+    <div class="bottom-bar">
+        <div>
+            <span class="rem-text">目標差額:</span>
+            <span id="remaining" style="color: var(--accent); font-weight: 600; font-size: 14px; margin-left: 5px;">$66,795</span>
+        </div>
+        <a href="#" class="reset-link" onclick="reset()">重新開始</a>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

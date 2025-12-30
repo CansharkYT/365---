@@ -1,0 +1,123 @@
+:root {
+            --primary: #948BB3; /* 鳶尾紫 (Iris Purple) */
+            --secondary: #D4A5A5; /* 灰粉 */
+            --accent: #7A7295; /* 深鳶尾 */
+            --bg: #F5F4F7; /* 淺灰紫色底 */
+            --card: #FFFFFF;
+            --text: #4A4755; /* 深紫灰文字 */
+            --border: #E0DEE7;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            letter-spacing: 0.03em;
+        }
+
+        /* 頂部看板 */
+        .header {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 50px 20px 70px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(148, 139, 179, 0.2);
+        }
+
+        .header h1 { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: 2px; }
+
+        /* 數據卡片 */
+        .stats-container {
+            width: 88%;
+            background: var(--card);
+            border-radius: 20px;
+            margin-top: -40px;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .stat-item { text-align: center; flex: 1; }
+        .stat-value { display: block; font-size: 20px; font-weight: 600; color: var(--accent); }
+        .stat-label { font-size: 11px; color: #A09EAD; margin-top: 5px; }
+
+        /* 進度條 */
+        .progress-wrapper {
+            width: 88%;
+            margin: 25px 0 15px;
+        }
+        .progress-bar {
+            height: 6px;
+            background: #EBE9F0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 1s ease;
+        }
+
+        /* 存錢網格 */
+        .grid-container {
+            width: 50%;
+            padding: 10px 15px 120px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .coin {
+            aspect-ratio: 1;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #BCB9C5;
+            transition: all 0.3s ease;
+        }
+
+        .coin.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(148, 139, 179, 0.4);
+        }
+
+        /* 底部操作欄 */
+        .bottom-bar {
+            position: fixed;
+            bottom: 25px;
+            width: 88%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #F0EEF5;
+        }
+
+        .rem-text { font-size: 12px; color: #8E8B9A; }
+        .reset-link { font-size: 11px; color: var(--secondary); text-decoration: none; font-weight: bold; }
